@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>New movie</p>
+    <p>Latest</p>
   </div>
 </template>
 
@@ -8,7 +8,7 @@
 import ApiMovies from "../mixins/ApiMovies";
 
 export default {
-  name: "New",
+  name: "Latest",
   data: function () {
     return {
       dataMovie: [],

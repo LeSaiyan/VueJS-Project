@@ -1,9 +1,8 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
+
+// Navbar
 import Home from "../views/Home.vue";
-import New from "../views/New.vue";
-import WishList from "../views/WishList.vue";
-import Search from "../views/Search.vue";
 
 Vue.use(VueRouter);
 
@@ -14,28 +13,34 @@ const routes = [
     component: Home,
   },
   {
-    path: "/New",
-    name: "New",
-    component: New,
+    path: "/TvShows",
+    name: "TvShows",
+    component: () =>
+      import("../views/TvShows.vue"),
+  },
+  {
+    path: "/Movies",
+    name: "Movies",
+    component: () =>
+      import("../views/Movies.vue"),
+  },
+  {
+    path: "/Latest",
+    name: "Latest",
+    component: () =>
+      import("../views/Latest.vue"),
   },
   {
     path: "/WishList",
     name: "WishList",
-    component: WishList,
+    component: () =>
+      import("../views/WishList.vue"),
   },
   {
     path: "/Search",
     name: "Search",
-    component: Search,
-  },
-  {
-    path: "/about",
-    name: "About",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
     component: () =>
-      import(/* webpackChunkName: "about" */ "../views/About.vue"),
+      import("../views/Search.vue"),
   },
 ];
 

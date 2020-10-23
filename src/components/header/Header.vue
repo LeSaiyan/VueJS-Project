@@ -1,11 +1,11 @@
 <template>
   <div class="header">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/New">New</router-link>
-      <router-link to="/WishList">WishList</router-link>
-      <router-link to="/Search">Search</router-link>
-      <router-link to="/about">About</router-link>
+      <router-link to="/">{{ $t("Home") }}</router-link> -
+      <router-link to="/TvShows">{{ $t("TvShows") }}</router-link> -
+      <router-link to="/Movies">{{ $t("Movies") }}</router-link> -
+      <router-link to="/Latest">{{ $t("Latest") }}</router-link> -
+      <router-link to="/WishList">{{ $t("My List") }}</router-link> -
     </div>
   </div>
 </template>
@@ -13,12 +13,27 @@
 <script>
 export default {
   name: "header",
-  props: {
-    msg: String
-  }
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
+<i18n>
+{
+  "en": {
+    "Home": "Home",
+    "TvShows": "TV Shows",
+    "Movies": "Movies",
+    "Latest": "Latest",
+    "My List": "My List"
+  },
+  "fr": {
+    "Home": "Accueil",
+    "TvShows": "Séries",
+    "Movies": "Films",
+    "Latest": "Nouveautés",
+    "My List": "Ma liste"
+  }
+}
+</i18n>
+
 <style scoped lang="scss">
 </style>
