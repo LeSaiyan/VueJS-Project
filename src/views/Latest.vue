@@ -1,14 +1,20 @@
 <template>
   <div>
-    <p>Latest</p>
+    <ScrollList
+      v-if="dataMovie.length > 0"
+      :title="$t('New')"
+      :list="dataMovie"
+    ></ScrollList>
   </div>
 </template>
 
 <script>
 import ApiMovies from "../mixins/ApiMovies";
+import ScrollList from "../components/scrollList/ScrollList";
 
 export default {
   name: "Latest",
+  components: { ScrollList },
   data: function () {
     return {
       dataMovie: [],
@@ -16,8 +22,7 @@ export default {
   },
   created() {
     this.getLatestMovies().then((data) => {
-      this.dataMovie = data;
-      console.log(data.results);
+      this.dataMovie = data.results;
     });
   },
   mixins: [ApiMovies],
@@ -26,3 +31,14 @@ export default {
 
 <style lang="scss" scoped>
 </style>
+
+<i18n>
+{
+  "en": {
+    "New": "Newest"
+  },
+  "fr": {
+    "New": "Nouveautés"
+  }
+}
+</i18n>
