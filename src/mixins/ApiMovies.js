@@ -46,5 +46,26 @@ export default {
       }
     },
     //#endregion
+    async getSearchResults(query) {
+      const res = await fetch(
+        `${APIConfig.apiUrl}/3/search/multi?api_key=${APIConfig.apiKey}&query=${query}&language=${this.$i18n.locale}`
+      )
+      const resJson = await res.json();
+      let results = []
+
+      //#region mapping content linked to a person
+      resJson.results.forEach(elem => {
+        if (elem.media_type === "person") {
+          elem.known_for.forEach(subElem => {
+            results = [...results, subElem]
+          })
+        } else {
+          results = [...results, elem]
+        }
+      })
+      //#endregion
+
+      return results
+    }
   },
 };

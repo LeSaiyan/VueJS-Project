@@ -1,7 +1,13 @@
 <template>
   <div class="HeaderActions">
     <div class="item">
-      <font-awesome-icon size="lg" icon="search" :style="{ color: 'white' }" />
+      <router-link to="/Search">
+        <font-awesome-icon
+          size="lg"
+          icon="search"
+          :style="{ color: 'white' }"
+        />
+      </router-link>
     </div>
     <div class="item">
       <font-awesome-icon size="lg" icon="gift" :style="{ color: 'white' }" />

@@ -57,9 +57,6 @@ export default {
       return this.$refs.Swiper.$swiper;
     },
   },
-  mounted() {
-    this.swiper.slideTo(3, 0, false);
-  },
 };
 </script>
 
