@@ -37,7 +37,6 @@ export default {
     sliderOptions: {
       slidesPerView: 7,
       slidesPerGroup: 7,
-      mousewheel: true,
       pagination: {
         el: ".swiper-pagination",
         clickable: true,
@@ -66,6 +65,7 @@ export default {
 
 <style lang="scss" scoped>
 .ScrollList {
+  padding: 1.5% 0;
   &__title {
     color: #e5e5e5;
     margin: 0 4% 0.5em 4%;
