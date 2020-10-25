@@ -1,20 +1,28 @@
 <template>
   <div>
     <ScrollList
-      :title="$t('List.New')"
+      :title="$t('List.UpcomingMovies')"
       :list="$store.state.upcomingMovies"
     ></ScrollList>
     <ScrollList
       :title="$t('List.Trending')"
       :list="$store.state.trendingAll"
-    ></ScrollList
-    ><ScrollList
+    ></ScrollList>
+    <ScrollList
       :title="$t('List.TrendingTVShows')"
       :list="$store.state.trendingTVShows"
-    ></ScrollList
-    ><ScrollList
+    ></ScrollList>
+    <ScrollList
       :title="$t('List.TrendingMovies')"
       :list="$store.state.trendingMovies"
+    ></ScrollList>
+    <ScrollList
+      :title="$t('List.PopularTVShows')"
+      :list="$store.state.popularTVShows"
+    ></ScrollList>
+    <ScrollList
+      :title="$t('List.PopularMovies')"
+      :list="$store.state.popularMovies"
     ></ScrollList>
   </div>
 </template>
@@ -25,12 +33,13 @@ import ScrollList from "../components/scrollList/ScrollList";
 
 export default {
   components: { ScrollList },
-  data: () => ({}),
   created() {
     this.getUpcomingMovies();
     this.getTrendingAll();
     this.getTrendingMovies();
     this.getTrendingTVShows();
+    this.getPopularMovies();
+    this.getPopularTVShows();
   },
   mixins: [ApiMovies],
 };

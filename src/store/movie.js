@@ -3,7 +3,10 @@ export default {
     upcomingMovies: [],
     trendingMovies: [],
     trendingAll: [],
-    trendingTVShows: []
+    trendingTVShows: [],
+    popularMovies: [],
+    popularTVShows: [],
+    genres: [],
   },
   mutations: {
     saveToState(state, { dataName, data }) {

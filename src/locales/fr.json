@@ -1,9 +1,17 @@
 {
   "List": {
     "New": "Nouveautés",
+    "UpcomingMovies": "Films à venir",
+    "LatestMovies": "Films récents",
     "Trending": "Tendance",
     "TrendingTVShows": "Séries Tendance",
-    "TrendingMovies": "Films Tendance"
+    "TrendingMovies": "Films Tendance",
+    "PopularTVShows": "Séries à succès",
+    "PopularMovies": "Fims à succès",
+    "Genres": "Catégories",
+    "TypeOfContents": "Type de contenus"
   },
-  "Search": "Recherche"
+  "Search": "Recherche",
+  "TVShows": "TV Shows",
+  "Movies": "Films"
 }

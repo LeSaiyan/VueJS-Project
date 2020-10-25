@@ -1,6 +1,30 @@
 <template>
   <div class="search">
-    <input v-model="search" :placeholder="$t('Search')" />
+    <div class="search-bar">
+      <div>
+        <p>{{ $t("Search") }}</p>
+        <input ref="searchInput" v-model="search" :placeholder="$t('Search')" />
+      </div>
+      <div>
+        <p>{{ $t("List.Genres") }}</p>
+        <select multiple="true" v-model="selectedGenres">
+          <option
+            v-for="item in $store.state.genres"
+            :key="item.index"
+            :value="item.id"
+          >
+            {{ item.name }}
+          </option>
+        </select>
+      </div>
+      <div>
+        <p>{{ $t("List.TypeOfContents") }}</p>
+        <select multiple="true" v-model="selectedContents">
+          <option value="tv">{{ $t("TVShows") }}</option>
+          <option value="movie">{{ $t("Movies") }}</option>
+        </select>
+      </div>
+    </div>
     <SearchList :list="searchResults"></SearchList>
   </div>
 </template>
@@ -13,25 +37,40 @@ export default {
   name: "Search",
   data: () => ({
     searchResults: [],
+    selectedGenres: [],
+    selectedContents: [],
     search: "",
-    isRequestingSearch: false,
   }),
   components: { SearchList },
   mixins: [ApiMovies],
-  watch: {
-    search: function (val, oldVal) {
-      if (this.isRequestingSearch) this.isRequestingSearch = false;
-      setTimeout(() => {
-        this.isRequestingSearch = true;
-      }, 1000);
-    },
-    isRequestingSearch: async function (val, oldVal) {
-      if (val && this.search !== "") {
-        this.searchResults = await this.getSearchResults(this.search);
-      } else if (val && this.search === "") {
-        this.searchResults = [];
+  methods: {
+    async refreshSearchResults() {
+      if (this.search === "") this.searchResults = [];
+      else {
+        this.searchResults = await this.getSearchResults({
+          search: this.search,
+          selectedGenres: this.selectedGenres,
+          selectedContents: this.selectedContents,
+        });
       }
     },
+  },
+  watch: {
+    search: function () {
+      this.refreshSearchResults();
+    },
+    selectedGenres: function () {
+      this.refreshSearchResults();
+    },
+    selectedContents: function () {
+      this.refreshSearchResults();
+    },
+  },
+  mounted() {
+    this.$refs.searchInput.focus();
+  },
+  created() {
+    this.getAllGenres();
   },
 };
 </script>
@@ -39,6 +78,11 @@ export default {
 <style lang="scss" scoped>
 .search {
   padding: 2.5%;
+  .search-bar {
+    display: flex;
+    justify-content: space-around;
+    padding-bottom: 2.5%;
+  }
   input {
     margin: 2.5% 0;
   }
