@@ -1,24 +1,27 @@
 <template>
   <div class="header">
     <div id="nav">
-      <router-link to="/">Home</router-link>
-      <router-link to="/New">New</router-link>
-      <router-link to="/WishList">WishList</router-link>
-      <router-link to="/Search">Search</router-link>
-      <router-link to="/about">About</router-link>
+      <HeaderLinks></HeaderLinks>
+      <HeaderActions></HeaderActions>
     </div>
   </div>
 </template>
 
 <script>
+import HeaderLinks from "./HeaderLinks";
+import HeaderActions from "./HeaderActions";
+
 export default {
-  name: "header",
-  props: {
-    msg: String
-  }
+  components: { HeaderLinks, HeaderActions },
 };
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="scss">
+#nav {
+  height: 70px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 4%;
+}
 </style>
