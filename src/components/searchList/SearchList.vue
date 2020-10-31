@@ -1,21 +1,21 @@
 <template>
   <div class="SearchList">
-    <ScrollListItem
+    <SearchListItem
       v-for="item in list"
       :key="item.index"
       :item="item"
-    ></ScrollListItem>
+    ></SearchListItem>
   </div>
 </template>
 
 <script>
-import ScrollListItem from "../scrollList/ScrollListItem";
+import SearchListItem from "./SearchListItem";
 
 export default {
   props: {
     list: Array,
   },
-  components: { ScrollListItem },
+  components: { SearchListItem },
 };
 </script>
 

@@ -1,7 +1,7 @@
 <template>
   <router-link :to="`/ContentDetails/${item.media_type}/${item.id}`">
     <div class="container">
-      <Scorer :vote_average="item.vote_average" />
+      <Scorer :vote_average="item.vote_average"></Scorer>
       <Poster :poster_path="item.poster_path" />
       <h3 class="content-title">{{ item.name || item.title }}</h3>
     </div>
@@ -9,31 +9,27 @@
 </template>
 
 <script>
-import Poster from "../Poster.vue";
-import Scorer from "./Scorer.vue";
+import Poster from "../Poster";
+import Scorer from "./Scorer";
 
 export default {
   props: {
     item: Object,
   },
-  components: {
-    Poster,
-    Scorer,
-  },
+  components: { Poster, Scorer },
 };
 </script>
 
 <style lang="scss">
 .container {
   width: 150px;
-
-  img {
-    width: 150px;
-  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  height: 100%;
   margin: auto;
-  .no-img {
-    height: 330px;
-  }
+
   .content-title {
     color: #e5e5e5;
   }

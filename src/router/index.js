@@ -42,6 +42,11 @@ const routes = [
     component: () =>
       import("../views/Search.vue"),
   },
+  {
+    path: "/ContentDetails/:media_type/:id",
+    name: "ContentDetails",
+    component: () => import("../views/ContentDetails.vue")
+  }
 ];
 
 const router = new VueRouter({
