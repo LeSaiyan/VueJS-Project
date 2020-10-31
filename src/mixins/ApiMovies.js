@@ -27,7 +27,8 @@ export default {
           `${APIConfig.apiUrl}/3/movie/upcoming?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
         );
         const resJson = await res.json();
-        this.saveToStore(resJson.results, "upcomingMovies")
+        const results = resJson.results.map(item => ({ ...item, media_type: "movie" }));
+        this.saveToStore(results, "upcomingMovies")
       }
     },
     async getTrendingAll() {
@@ -45,7 +46,8 @@ export default {
           `${APIConfig.apiUrl}/3/trending/movie/day?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
         );
         const resJson = await res.json();
-        this.saveToStore(resJson.results, "trendingMovies")
+        const results = resJson.results.map(item => ({ ...item, media_type: "movie" }));
+        this.saveToStore(results, "trendingMovies")
       }
     },
     async getTrendingTVShows() {
@@ -54,7 +56,8 @@ export default {
           `${APIConfig.apiUrl}/3/trending/tv/day?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
         );
         const resJson = await res.json();
-        this.saveToStore(resJson.results, "trendingTVShows")
+        const results = resJson.results.map(item => ({ ...item, media_type: "tv" }));
+        this.saveToStore(results, "trendingTVShows")
       }
     },
     async getPopularMovies() {
@@ -63,7 +66,8 @@ export default {
           `${APIConfig.apiUrl}/3/movie/popular?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
         );
         const resJson = await res.json();
-        this.saveToStore(resJson.results, "popularMovies")
+        const results = resJson.results.map(item => ({ ...item, media_type: "movie" }));
+        this.saveToStore(results, "popularMovies")
       }
     },
     async getPopularTVShows() {
@@ -72,7 +76,8 @@ export default {
           `${APIConfig.apiUrl}/3/tv/popular?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
         );
         const resJson = await res.json();
-        this.saveToStore(resJson.results, "popularTVShows")
+        const results = resJson.results.map(item => ({ ...item, media_type: "tv" }));
+        this.saveToStore(results, "popularTVShows")
       }
     },
     //#endregion
@@ -131,6 +136,16 @@ export default {
 
     //#region account
 
-    //#endregion 
+    //#endregion
+
+    //#region get movie / tv show by id
+    async getItemById(id, media_type) {
+      const res = await fetch(
+        `${APIConfig.apiUrl}/3/${media_type}/${id}?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
+      );
+      const resJson = await res.json();
+      return resJson
+    }
+    //#endregion
   },
 };

@@ -1,5 +1,5 @@
 <template>
-  <div>Latest</div>
+  <p>Latest</p>
 </template>
 
 <script>
