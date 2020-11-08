@@ -211,7 +211,11 @@ export default {
 
     //#region add fav
     Favorites(item) {
-      console.log(item);
+      console.log(item.id, item.title, item.poster_path);
+      this.saveToStore(
+        { id: item.id, title: item.title, poster: item.poster_path },
+        "favorites"
+      );
     },
     //#endregion
   },

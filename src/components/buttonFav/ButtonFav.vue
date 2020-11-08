@@ -3,7 +3,7 @@
 </template>
 
 <script>
-import ApiMovies from "../../configs/api.configs";
+import ApiMovies from "../../mixins/ApiMovies";
 
 export default {
   props: {
@@ -12,7 +12,6 @@ export default {
   methods: {
     handleAddFavorites: function (item) {
       this.Favorites(item);
-      //   console.log(item.id, item.title, item.poster_path);
     },
   },
   mixins: [ApiMovies],
