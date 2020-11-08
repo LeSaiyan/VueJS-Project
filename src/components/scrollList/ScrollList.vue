@@ -9,8 +9,16 @@
       <swiper-slide v-for="item in list" :key="item.index">
         <ScrollListItem :item="item"></ScrollListItem>
       </swiper-slide>
-      <div class="swiper-button-prev" slot="button-prev"></div>
-      <div class="swiper-button-next" slot="button-next"></div>
+      <div
+        v-if="list.length > 6"
+        class="swiper-button-prev"
+        slot="button-prev"
+      ></div>
+      <div
+        v-if="list.length > 6"
+        class="swiper-button-next"
+        slot="button-next"
+      ></div>
     </swiper>
   </div>
 </template>

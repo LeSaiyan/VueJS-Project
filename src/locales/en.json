@@ -9,7 +9,9 @@
     "PopularTVShows": "Popular TV Shows",
     "PopularMovies": "Popular Movies",
     "Genres": "Genres",
-    "TypeOfContents": "Type of Contents"
+    "TypeOfContents": "Type of Contents",
+    "LatestMovie": "Latest Movie",
+    "LatestTVShow": "Latest TVShow"
   },
   "Search": "Search",
   "TVShows": "TV Shows",

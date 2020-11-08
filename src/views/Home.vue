@@ -1,6 +1,14 @@
 <template>
   <div>
     <ScrollList
+      :title="$t('List.LatestMovie')"
+      :list="$store.state.latestMovie"
+    ></ScrollList>
+    <ScrollList
+      :title="$t('List.LatestTVShow')"
+      :list="$store.state.latestTVShow"
+    ></ScrollList>
+    <ScrollList
       :title="$t('List.UpcomingMovies')"
       :list="$store.state.upcomingMovies"
     ></ScrollList>
@@ -34,6 +42,8 @@ import ScrollList from "../components/scrollList/ScrollList";
 export default {
   components: { ScrollList },
   created() {
+    this.getLatestMovie();
+    this.getLatestTVShow();
     this.getUpcomingMovies();
     this.getTrendingAll();
     this.getTrendingMovies();

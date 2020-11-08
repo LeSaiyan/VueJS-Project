@@ -9,7 +9,9 @@
     "PopularTVShows": "Séries à succès",
     "PopularMovies": "Fims à succès",
     "Genres": "Catégories",
-    "TypeOfContents": "Type de contenus"
+    "TypeOfContents": "Type de contenus",
+    "LatestMovie": "Dernier film",
+    "LatestTVShow": "Derniere série"
   },
   "Search": "Recherche",
   "TVShows": "TV Shows",
