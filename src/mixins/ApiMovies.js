@@ -185,7 +185,8 @@ export default {
         `${APIConfig.apiUrl}/3/${media_type}/${id}?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
       );
       const resJson = await res.json();
-      return resJson;
+      this.saveToStore(resJson, "itemDetails");
+      // return resJson;
     },
     //#endregion
   },

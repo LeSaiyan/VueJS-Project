@@ -9,6 +9,7 @@ export default {
     genres: [],
     latestMovie: [],
     latestTVShow: [],
+    itemDetails: [],
   },
   mutations: {
     saveToState(state, { dataName, data }) {

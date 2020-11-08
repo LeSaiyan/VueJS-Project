@@ -1,7 +1,6 @@
 <template>
   <div>
-    <ContentDetailsMain :item="item" />
-    <Poster :poster_path="item.poster_path" />
+    <ContentDetailsMain :item="this.$store.state.itemDetails" />
   </div>
 </template>
 
@@ -18,7 +17,9 @@ export default {
     this.item = await this.getItemById(
       this.$route.params.id,
       this.$route.params.media_type
-    );
+    ).then(() => {
+      console.log(this.$store.state.itemDetails);
+    });
   },
   mixins: [ApiMovies],
 };
