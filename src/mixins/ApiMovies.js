@@ -18,6 +18,15 @@ export default {
       }
       return 0;
     },
+    diff(arr1, arr2) {
+      var ret = [];
+      for (var i in arr1) {
+        if (arr2.indexOf(arr1[i]) > -1) {
+          ret.push(arr1[i]);
+        }
+      }
+      return ret;
+    },
     //#endregion
 
     //#region request for lists movies / tv shows
@@ -128,7 +137,6 @@ export default {
     async getSearchResults({ search, selectedGenres, selectedContents }) {
       let requestUrl = "";
       if (selectedContents.length !== 1) {
-        // All
         requestUrl = `${APIConfig.apiUrl}/3/search/multi?api_key=${APIConfig.apiKey}&query=${search}&language=${this.$i18n.locale}`;
       } else {
         requestUrl = `${APIConfig.apiUrl}/3/search/${selectedContents[0]}?api_key=${APIConfig.apiKey}&query=${search}&language=${this.$i18n.locale}`;
@@ -149,6 +157,17 @@ export default {
         }
       });
       //#endregion
+
+      if (selectedGenres.length > 0) {
+        let tempResults = []
+        results.forEach((elem) => {
+          const diffArr = this.diff(elem.genre_ids, selectedGenres);
+          if (diffArr.length > 0) {
+            tempResults = [...tempResults, elem]
+          }
+        })
+        results = tempResults;
+      }
 
       return results;
     },
