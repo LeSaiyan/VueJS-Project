@@ -159,13 +159,13 @@ export default {
       //#endregion
 
       if (selectedGenres.length > 0) {
-        let tempResults = []
+        let tempResults = [];
         results.forEach((elem) => {
           const diffArr = this.diff(elem.genre_ids, selectedGenres);
           if (diffArr.length > 0) {
-            tempResults = [...tempResults, elem]
+            tempResults = [...tempResults, elem];
           }
-        })
+        });
         results = tempResults;
       }
 
@@ -206,6 +206,12 @@ export default {
       const resJson = await res.json();
       this.saveToStore(resJson, "itemDetails");
       // return resJson;
+    },
+    //#endregion
+
+    //#region add fav
+    Favorites(item) {
+      console.log(item);
     },
     //#endregion
   },

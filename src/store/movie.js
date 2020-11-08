@@ -10,6 +10,7 @@ export default {
     latestMovie: [],
     latestTVShow: [],
     itemDetails: [],
+    favorites: [],
   },
   mutations: {
     saveToState(state, { dataName, data }) {
