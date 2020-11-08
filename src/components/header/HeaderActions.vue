@@ -9,20 +9,16 @@
         />
       </router-link>
     </div>
-    <div class="item">
-      <font-awesome-icon size="lg" icon="gift" :style="{ color: 'white' }" />
-    </div>
-    <div class="item">
-      <font-awesome-icon size="lg" icon="bell" :style="{ color: 'white' }" />
-    </div>
-    <div class="item">
-      <font-awesome-icon icon="sort-down" :style="{ color: 'white' }" />
-    </div>
+    <LocaleChanger />
   </div>
 </template>
 
 <script>
-export default {};
+import LocaleChanger from "../localeChanger/LocaleChanger";
+
+export default {
+  components: { LocaleChanger },
+};
 </script>
 
 <style lang="scss" scoped>
