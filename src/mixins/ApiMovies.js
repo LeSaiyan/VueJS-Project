@@ -199,7 +199,7 @@ export default {
 
     //#region get movie / tv show by id
     async getItemById(id, media_type) {
-      this.saveToStore(null, "itemDetails")
+      this.saveToStore(null, "itemDetails");
       const res = await fetch(
         `${APIConfig.apiUrl}/3/${media_type}/${id}?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
       );
@@ -212,7 +212,7 @@ export default {
     //#region add fav
     Favorites(item) {
       let favorites = this.$store.state.favorites;
-      const favorite = item
+      const favorite = item;
       let index = favorites.findIndex((i) => i.id === favorite.id);
 
       if (index === -1) {
