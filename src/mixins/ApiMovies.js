@@ -211,11 +211,27 @@ export default {
 
     //#region add fav
     Favorites(item) {
-      console.log(item.id, item.title, item.poster_path);
-      this.saveToStore(
-        { id: item.id, title: item.title, poster: item.poster_path },
-        "favorites"
-      );
+      let favorites = this.$store.state.favorites;
+      const favorite = {
+        id: item.id,
+        favPoster: item.poster_path,
+      };
+
+      if (item.name) {
+        favorite.name = item.name;
+      } else if (item.title) {
+        favorite.title = item.title;
+      }
+
+      let index = favorites.findIndex((i) => i.id === favorite.id);
+
+      if (index === -1) {
+        favorites.push(favorite);
+      } else if (index > -1) {
+        console.log(index);
+        favorites.splice(index, 1);
+      }
+      this.saveToStore(favorites, "favorites");
     },
     //#endregion
   },
