@@ -1,11 +1,7 @@
 <template>
   <div class="ScrollList">
     <h2 class="ScrollList__title">{{ title }}</h2>
-    <swiper
-      @click-slide="handleClickSlide"
-      ref="Swiper"
-      :options="sliderOptions"
-    >
+    <swiper ref="Swiper" :options="sliderOptions">
       <swiper-slide v-for="item in list" :key="item.index">
         <ScrollListItem :item="item"></ScrollListItem>
       </swiper-slide>
@@ -55,11 +51,6 @@ export default {
       },
     },
   }),
-  methods: {
-    handleClickSlide: function (index, reallyIndex) {
-      console.log("Click slide!", index, reallyIndex);
-    },
-  },
   computed: {
     swiper() {
       return this.$refs.Swiper.$swiper;
