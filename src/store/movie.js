@@ -9,7 +9,7 @@ export default {
     genres: [],
     latestMovie: [],
     latestTVShow: [],
-    itemDetails: [],
+    itemDetails: {},
     favorites: [],
   },
   mutations: {

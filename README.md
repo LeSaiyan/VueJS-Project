@@ -1,5 +1,7 @@
 # vuejs-project
 
+https://netflix-ynov.netlify.app/
+
 Jérôme CELEBI
 Bastien PINARD
 

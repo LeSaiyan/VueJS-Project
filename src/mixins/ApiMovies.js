@@ -31,7 +31,6 @@ export default {
 
     //#region request for lists movies / tv shows
     async getUpcomingMovies() {
-      console.log(process.env.variableName);
       if (this.$store.state.upcomingMovies.length === 0) {
         const res = await fetch(
           `${APIConfig.apiUrl}/3/movie/upcoming?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
@@ -206,7 +205,7 @@ export default {
         `${APIConfig.apiUrl}/3/${media_type}/${id}?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
       );
       const resJson = await res.json();
-      this.saveToStore(resJson, "itemDetails");
+      this.saveToStore({ ...resJson, media_type }, "itemDetails");
       // return resJson;
     },
     //#endregion
