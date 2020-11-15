@@ -1,6 +1,6 @@
 <template>
   <div>
-    <ContentDetailsMain :item="this.$store.state.itemDetails" />
+    <ContentDetailsMain :item="$store.state.itemDetails" />
   </div>
 </template>
 
@@ -10,9 +10,6 @@ import ContentDetailsMain from "../components/contentDetails/ContentDetailsMain"
 
 export default {
   components: { ContentDetailsMain },
-  data: () => ({
-    item: {},
-  }),
   async created() {
     this.item = await this.getItemById(
       this.$route.params.id,

@@ -1,5 +1,5 @@
 <template>
-  <div class="ContentDetailsMain">
+  <div v-if="$store.state.itemDetails" class="ContentDetailsMain">
     <Poster class="poster" :poster_path="item.poster_path" />
     <div class="infos">
       <BunttonFav :item="item" />
