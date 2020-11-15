@@ -5,7 +5,7 @@
       :title="$t('List.Favorites')"
       :list="$store.state.favorites"
     ></ScrollList>
-    <div v-else>
+    <div v-else class="fav">
       <p>{{ $t("List.NoFavorites") }}</p>
     </div>
   </div>
@@ -21,4 +21,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.fav {
+  text-align: center;
+}
 </style>

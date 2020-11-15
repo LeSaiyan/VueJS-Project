@@ -17,5 +17,12 @@
   },
   "Search": "Search",
   "TVShows": "TV Shows",
-  "Movies": "Movies"
+  "Movies": "Movies",
+  "ProductionCompanies" : "Production companies",
+  "CreatedBy" : "Created by",
+  "Release" : "Release",
+  "Duration" : "Duration",
+  "VoteAverage" : "Vote average",
+  "VoteCount" : "Vote count",
+  "Seasons" : "Seasons"
 }

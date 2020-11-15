@@ -2,12 +2,13 @@
   <div class="ContentDetailsMain">
     <Poster class="poster" :poster_path="item.poster_path" />
     <div class="infos">
+      <BunttonFav :item="item" />
       <h2>{{ item.name || item.title }}</h2>
       <h4>{{ item.tagline }}</h4>
       <p>{{ item.overview }}</p>
       <div class="lists">
         <ul>
-          <p>genres :</p>
+          <p>{{ $t("List.Genres") }} :</p>
           <div>
             <li v-for="genre in item.genres" :key="genre.id">
               <p>{{ genre.name }}</p>
@@ -15,7 +16,7 @@
           </div>
         </ul>
         <ul v-if="item.production_companies">
-          <p>Production companies:</p>
+          <p>{{ $t("ProductionCompanies") }} :</p>
           <div>
             <li
               v-for="companie in item.production_companies"
@@ -27,34 +28,35 @@
         </ul>
       </div>
       <ul v-if="item.created_by">
-        <p>created by :</p>
+        <p>{{ $t("CreatedBy") }} :</p>
         <div>
           <li v-for="creator in item.created_by" :key="creator.id">
             <p>{{ creator.name }}</p>
           </li>
         </div>
       </ul>
-
-      <p>Release : {{ item.first_air_date || item.release_date }}</p>
-      <p>Duration : {{ item.runtime }} minutes</p>
-      <p>Vote average : {{ item.vote_average }}</p>
-      <p>Vote count : {{ item.vote_count }}</p>
-      <p v-if="item.seasons">Seasons : {{ item.number_of_seasons }}</p>
+      <p>
+        {{ $t("Release") }} : {{ item.first_air_date || item.release_date }}
+      </p>
+      <p>{{ $t("Duration") }} : {{ item.runtime }} minutes</p>
+      <p>{{ $t("VoteAverage") }} : {{ item.vote_average }}</p>
+      <p>{{ $t("VoteCount") }} : {{ item.vote_count }}</p>
+      <p v-if="item.seasons">
+        {{ $t("Seasons") }} : {{ item.number_of_seasons }}
+      </p>
     </div>
   </div>
 </template>
 
 <script>
 import Poster from "../Poster";
+import BunttonFav from "../buttonFav/ButtonFav.vue";
 
 export default {
   props: {
     item: Object,
   },
-  components: { Poster },
-  created() {
-    console.log(this.item);
-  },
+  components: { Poster, BunttonFav },
 };
 </script>
 
