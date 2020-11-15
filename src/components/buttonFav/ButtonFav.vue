@@ -1,6 +1,6 @@
 <template>
   <button class="buttonFav" @click="handleAddFavorites(item)">
-    <span :class="classObject"></span>
+    <span :class="`fa fa-star ${checked}`"></span>
   </button>
 </template>
 
@@ -8,32 +8,14 @@
 import ApiMovies from "../../mixins/ApiMovies";
 
 export default {
-  data: () => ({
-    classObject: {
-      fa: "fa",
-      "fa-star": "fa-star",
-      checked: "",
-    },
-  }),
   props: {
     item: Object,
   },
-  created() {
-    this.initFavorites(this.item);
-  },
-  methods: {
-    handleAddFavorites: function (item) {
-      this.Favorites(item);
-      this.initFavorites(item);
-    },
-    initFavorites: function (item) {
-      let favorites = this.$store.state.favorites;
-      let index = favorites.findIndex((i) => i.id === item.id);
-      if (index === -1) {
-        this.classObject.checked = "";
-      } else if (index > -1) {
-        this.classObject.checked = "checked";
-      }
+  computed: {
+    checked() {
+      const favorites = this.$store.state.favorites;
+      const index = favorites.findIndex((i) => i.id === this.item.id);
+      return index === -1 ? "" : "checked";
     },
   },
   mixins: [ApiMovies],

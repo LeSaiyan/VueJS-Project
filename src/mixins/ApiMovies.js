@@ -212,23 +212,12 @@ export default {
     //#region add fav
     Favorites(item) {
       let favorites = this.$store.state.favorites;
-      const favorite = {
-        id: item.id,
-        poster_path: item.poster_path,
-      };
-
-      if (item.name) {
-        favorite.name = item.name;
-      } else if (item.title) {
-        favorite.title = item.title;
-      }
-
+      const favorite = item
       let index = favorites.findIndex((i) => i.id === favorite.id);
 
       if (index === -1) {
         favorites.push(favorite);
       } else if (index > -1) {
-        console.log(index);
         favorites.splice(index, 1);
       }
       this.saveToStore(favorites, "favorites");
