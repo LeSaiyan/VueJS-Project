@@ -13,7 +13,7 @@
 
 <script>
 import Poster from "../Poster.vue";
-import Scorer from "./Scorer.vue";
+import Scorer from "../Scorer.vue";
 import BunttonFav from "../buttonFav/ButtonFav.vue";
 
 export default {
