@@ -15,38 +15,28 @@ const routes = [
   {
     path: "/TvShows",
     name: "TvShows",
-    component: () =>
-      import("../views/TvShows.vue"),
+    component: () => import("../views/TvShows.vue"),
   },
   {
     path: "/Movies",
     name: "Movies",
-    component: () =>
-      import("../views/Movies.vue"),
-  },
-  {
-    path: "/Latest",
-    name: "Latest",
-    component: () =>
-      import("../views/Latest.vue"),
+    component: () => import("../views/Movies.vue"),
   },
   {
     path: "/WishList",
     name: "WishList",
-    component: () =>
-      import("../views/WishList.vue"),
+    component: () => import("../views/WishList.vue"),
   },
   {
     path: "/Search",
     name: "Search",
-    component: () =>
-      import("../views/Search.vue"),
+    component: () => import("../views/Search.vue"),
   },
   {
     path: "/ContentDetails/:media_type/:id",
     name: "ContentDetails",
-    component: () => import("../views/ContentDetails.vue")
-  }
+    component: () => import("../views/ContentDetails.vue"),
+  },
 ];
 
 const router = new VueRouter({
