@@ -11,7 +11,9 @@
     "Genres": "Catégories",
     "TypeOfContents": "Type de contenus",
     "LatestMovie": "Dernier film",
-    "LatestTVShow": "Derniere série"
+    "LatestTVShow": "Derniere série",
+    "Favorites": "Séries et films préférés",
+    "NoFavorites": "Vous n'avez pas de films ou séries préférées"
   },
   "Search": "Recherche",
   "TVShows": "TV Shows",

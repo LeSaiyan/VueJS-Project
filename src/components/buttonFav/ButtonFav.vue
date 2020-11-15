@@ -18,10 +18,15 @@ export default {
   props: {
     item: Object,
   },
+  created() {
+    this.initFavorites(this.item);
+  },
   methods: {
     handleAddFavorites: function (item) {
       this.Favorites(item);
-      console.log(this.$store.state.favorites);
+      this.initFavorites(item);
+    },
+    initFavorites: function (item) {
       let favorites = this.$store.state.favorites;
       let index = favorites.findIndex((i) => i.id === item.id);
       if (index === -1) {

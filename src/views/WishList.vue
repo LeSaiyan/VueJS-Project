@@ -1,11 +1,22 @@
 <template>
   <div>
-    <p>Wishlist</p>
+    <ScrollList
+      v-if="$store.state.favorites.length > 0"
+      :title="$t('List.Favorites')"
+      :list="$store.state.favorites"
+    ></ScrollList>
+    <div v-else>
+      <p>{{ $t("List.NoFavorites") }}</p>
+    </div>
   </div>
 </template>
 
 <script>
+import ScrollList from "../components/scrollList/ScrollList";
+
 export default {
+  components: { ScrollList },
+
   name: "WishList",
 };
 </script>
