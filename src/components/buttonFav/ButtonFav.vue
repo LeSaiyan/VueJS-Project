@@ -18,6 +18,12 @@ export default {
       return index === -1 ? "" : "checked";
     },
   },
+  methods: {
+    handleAddFavorites: function (item) {
+      this.Favorites(item);
+      this.checked(item);
+    },
+  },
   mixins: [ApiMovies],
 };
 </script>
