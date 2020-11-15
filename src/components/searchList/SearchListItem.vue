@@ -10,7 +10,7 @@
 
 <script>
 import Poster from "../Poster";
-import Scorer from "./Scorer";
+import Scorer from "../Scorer";
 
 export default {
   props: {

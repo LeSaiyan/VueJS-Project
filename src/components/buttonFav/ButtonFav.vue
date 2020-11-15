@@ -11,6 +11,11 @@ export default {
   props: {
     item: Object,
   },
+  methods: {
+    handleAddFavorites: function (item) {
+      this.Favorites(item);
+    },
+  },
   computed: {
     checked() {
       const favorites = this.$store.state.favorites;
