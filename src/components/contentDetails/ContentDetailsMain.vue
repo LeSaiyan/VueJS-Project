@@ -9,7 +9,7 @@
         <p>{{ genre.name }}</p>
       </li>
     </ul>
-    <h3>{{ item.title }}</h3>
+    <h3>{{ item.name || item.title }}</h3>
     <p>{{ item.overview }}</p>
     <p>Release : {{ item.release_date }}</p>
     <p>Duration : {{ item.runtime }} minutes</p>

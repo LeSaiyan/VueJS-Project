@@ -16,7 +16,6 @@ import ScrollList from "../components/scrollList/ScrollList";
 
 export default {
   components: { ScrollList },
-
   name: "WishList",
 };
 </script>

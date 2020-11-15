@@ -214,7 +214,7 @@ export default {
       let favorites = this.$store.state.favorites;
       const favorite = {
         id: item.id,
-        favPoster: item.poster_path,
+        poster_path: item.poster_path,
       };
 
       if (item.name) {
