@@ -17,6 +17,26 @@
           </option>
         </select>
       </div>
+
+      <div class="custom-select" :tabindex="tabindex" @blur="open = false">
+        <div class="selected" :class="{ open: open }" @click="open = !open">
+          {{ selected }}
+        </div>
+        <div class="items" :class="{ selectHide: !open }">
+          <div
+            v-for="(option, i) of options"
+            :key="i"
+            @click="
+              selected = option;
+              open = false;
+              $emit('input', option);
+            "
+          >
+            {{ option }}
+          </div>
+        </div>
+      </div>
+
       <div>
         <p>{{ $t("List.TypeOfContents") }}</p>
         <select multiple="true" v-model="selectedContents">
@@ -85,6 +105,10 @@ export default {
   }
   input {
     margin: 2.5% 0;
+    border: 0;
+    color: rgb(229, 229, 229);
+    background-color: transparent;
+    outline: none;
   }
 }
 </style>

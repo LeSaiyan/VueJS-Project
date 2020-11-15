@@ -1,6 +1,10 @@
 <template>
   <div class="LocaleChanger">
-    <select v-model="$i18n.locale" @change="handleChange($event)">
+    <select
+      class="localeSelect"
+      v-model="$i18n.locale"
+      @change="handleChange($event)"
+    >
       <option v-for="(lang, i) in langs" :key="`Lang${i}`" :value="lang">
         {{ lang }}
       </option>
@@ -21,3 +25,12 @@ export default {
   },
 };
 </script>
+
+
+<style lang="scss" scoped>
+.localeSelect {
+  background-color: transparent;
+  color: white;
+  border: 0;
+}
+</style>

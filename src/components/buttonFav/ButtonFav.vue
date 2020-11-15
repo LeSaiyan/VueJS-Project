@@ -32,6 +32,7 @@ export default {
   border: 0;
   width: 90%;
   margin: 0px 5%;
+  outline: none;
 }
 
 .checked {

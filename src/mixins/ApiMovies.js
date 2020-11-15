@@ -200,6 +200,7 @@ export default {
 
     //#region get movie / tv show by id
     async getItemById(id, media_type) {
+      console.log(media_type);
       this.saveToStore(null, "itemDetails");
       const res = await fetch(
         `${APIConfig.apiUrl}/3/${media_type}/${id}?api_key=${APIConfig.apiKey}&language=${this.$i18n.locale}`
